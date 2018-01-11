@@ -1,11 +1,11 @@
 
-package com.example.taras.wallpers.api.responses.RandomPhoto.WithoutCOUNT;
+package com.example.taras.wallpers.api.ModelsOfResponse;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseRandomWithoutCount {
+public class ResponseRandomPhotos {
 
     @SerializedName("id")
     @Expose

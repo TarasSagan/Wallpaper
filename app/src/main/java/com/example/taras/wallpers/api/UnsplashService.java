@@ -1,10 +1,10 @@
 package com.example.taras.wallpers.api;
 
-import com.example.taras.wallpers.api.responses.RandomPhoto.WithoutCOUNT.ResponseRandomWithoutCount;
+import com.example.taras.wallpers.api.ModelsOfResponse.ResponseRandomPhotos;
 
 import java.util.List;
 
-import retrofit2.Call;
+import io.reactivex.Flowable;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Query;
@@ -16,6 +16,6 @@ public interface UnsplashService {
     })
 
     @GET("/photos/random")
-    Call<List<ResponseRandomWithoutCount>> getPhotosRandom(@Query("count") int count);
+    Flowable<List<ResponseRandomPhotos>> getPhotosRandom(@Query("count") int count);
 
 }

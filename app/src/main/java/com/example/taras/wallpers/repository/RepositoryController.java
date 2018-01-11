@@ -1,18 +1,16 @@
 package com.example.taras.wallpers.repository;
 
 import android.util.Log;
-
 import com.example.taras.wallpers.api.UnsplashService;
-import com.example.taras.wallpers.api.responses.RandomPhoto.WithoutCOUNT.ResponseRandomWithoutCount;
-import com.google.gson.Gson;
-
+import com.example.taras.wallpers.api.ModelsOfResponse.ResponseRandomPhotos;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+
 
 
 public class RepositoryController {
@@ -20,24 +18,16 @@ public class RepositoryController {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.unsplash.com")
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
         UnsplashService api = retrofit.create(UnsplashService.class);
-        Call<List<ResponseRandomWithoutCount>> call = api.getPhotosRandom(29);
-        call.enqueue(new Callback<List<ResponseRandomWithoutCount>>() {
-            @Override
-            public void onResponse(Call<List<ResponseRandomWithoutCount>> call, Response<List<ResponseRandomWithoutCount>> response) {
-                if (response.isSuccessful()){
-                    Log.d("RESPONSE  ", "Удачно");
-                    Log.d("RESPONSE  ", Integer.toString(response.body().size()));
+        Flowable<List<ResponseRandomPhotos>> call = api.getPhotosRandom(29);
 
-                }else  Log.d("RESPONSE  ", "не удалчно");
-            }
+        call
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response ->Log.d("RESPONSE  ", Integer.toString(response.size())));
 
-            @Override
-            public void onFailure(Call<List<ResponseRandomWithoutCount>> call, Throwable t) {
-
-            }
-        });
     }
 }
