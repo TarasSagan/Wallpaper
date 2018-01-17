@@ -1,8 +1,11 @@
 package com.example.taras.wallpers.repository;
 
+import android.content.Context;
 import android.util.Log;
 import com.example.taras.wallpers.api.UnsplashService;
 import com.example.taras.wallpers.api.ModelsOfResponse.ResponseRandomPhotos;
+import com.example.taras.wallpers.repository.local.DbMethods;
+
 import java.util.List;
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -14,7 +17,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class RepositoryController {
-    public static void getResponse(){
+    private RepositoryUtils repositoryUtils;
+    private DbMethods dbMethods;
+
+    public void getResponse(Context context){
+        repositoryUtils = new RepositoryUtils();
+        dbMethods = new DbMethods();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.unsplash.com")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -24,10 +33,12 @@ public class RepositoryController {
         UnsplashService api = retrofit.create(UnsplashService.class);
         Flowable<List<ResponseRandomPhotos>> call = api.getPhotosRandom(29);
 
-        call
+            call.map(list -> repositoryUtils.transormResponse(list))
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response ->Log.d("RESPONSE  ", Integer.toString(response.size())));
+                .subscribe(photos -> {
+                    dbMethods.insertData(photos, context);
+                    Log.d("RESPONSE  ", Integer.toString(photos.size()));
+                });
 
     }
 }

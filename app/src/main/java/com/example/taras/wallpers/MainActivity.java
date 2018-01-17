@@ -17,6 +17,7 @@ import com.example.taras.wallpers.repository.RepositoryController;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private RepositoryController repositoryController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        RepositoryController.getResponse();
+        repositoryController = new RepositoryController();
+        repositoryController.getResponse(getApplicationContext());
     }
 
     @Override
