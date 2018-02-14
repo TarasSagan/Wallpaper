@@ -4,6 +4,8 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.RoomDatabase;
+
 import com.example.taras.wallpers.repository.Photo;
 import java.util.List;
 
@@ -25,6 +27,6 @@ public interface PhotoDao {
     @Insert
     void insertAll(Photo... photos);
 
-    @Delete
-    void delete(Photo photo);
+//    @Query("DELETE FROM photoDatabase.db")
+//    void deleteAll();
 }

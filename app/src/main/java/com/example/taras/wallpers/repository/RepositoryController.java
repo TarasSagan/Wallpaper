@@ -25,7 +25,7 @@ public class RepositoryController {
         dbMethods = new DbMethods();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.unsplash.com")
+                .baseUrl("https://api.unsplash.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
@@ -33,11 +33,12 @@ public class RepositoryController {
         UnsplashService api = retrofit.create(UnsplashService.class);
         Flowable<List<ResponseRandomPhotos>> call = api.getPhotosRandom(29);
 
-            call.map(list -> repositoryUtils.transormResponse(list))
+        call
+                .map(list -> repositoryUtils.transormResponse(list))
                 .subscribeOn(Schedulers.io())
                 .subscribe(photos -> {
-                    dbMethods.insertData(photos, context);
-                    Log.d("RESPONSE  ", Integer.toString(photos.size()));
+                        dbMethods.insertData(photos, context);
+                        Log.d("RESPONSE  ", Integer.toString(photos.size()));
                 });
 
     }
