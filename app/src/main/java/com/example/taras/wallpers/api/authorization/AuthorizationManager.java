@@ -1,10 +1,12 @@
 package com.example.taras.wallpers.api.authorization;
 
 import android.content.Context;
-import android.util.Log;
 import com.example.taras.wallpers.R;
 import com.example.taras.wallpers.api.ModelsOfResponse.token.AuthorizationToken;
 import com.example.taras.wallpers.repository.SharedPreferences.TokenManager;
+
+import javax.inject.Inject;
+
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -14,9 +16,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AuthorizationManager {
     private AuthorizationService authorizationService;
-    private TokenManager tokenManager;
+    @Inject TokenManager tokenManager;
     private Retrofit retrofit;
-    private Context context;
+    @Inject Context context;
 
     public AuthorizationManager(Context context) {
         this.context = context;
@@ -24,7 +26,7 @@ public class AuthorizationManager {
         prepareService();
     }
 
-    void prepareService(){
+    private void prepareService(){
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://unsplash.com/")
                 .addConverterFactory(GsonConverterFactory.create())

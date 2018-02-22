@@ -1,11 +1,11 @@
 
-package com.example.taras.wallpers.api.ModelsOfResponse;
+package com.example.taras.wallpers.api.ModelsOfResponse.photo;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseRandomPhotos {
+public class PhotoItem {
 
     @SerializedName("id")
     @Expose

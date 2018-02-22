@@ -1,25 +1,44 @@
 package com.example.taras.wallpers.api;
 
-import com.example.taras.wallpers.api.ModelsOfResponse.ResponseRandomPhotos;
-import com.example.taras.wallpers.api.ModelsOfResponse.token.AuthorizationToken;
 
-import java.util.List;
+
+import com.example.taras.wallpers.api.ModelsOfResponse.photo.PhotoItem;
+import com.example.taras.wallpers.api.ModelsOfResponse.likeResponce.LikeResponse;
+import com.example.taras.wallpers.api.ModelsOfResponse.profile.ProfileResponse;
+
+
+import java.util.LinkedList;
 
 import io.reactivex.Flowable;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface UnsplashService {
 
-    @Headers({
-            "Authorization: Client-ID bafddaf9af46bc71e5c6ff4ce4d4f35bbc56821e7e138d8e3797d1e59ef6d0d2"
-    })
+    @POST("/photos/{id}/like")
+    Flowable<LikeResponse> postLike(@Path("id") String id);
 
-    @GET("photos/random")
-    Flowable<List<ResponseRandomPhotos>> getPhotosRandom(@Query("count") int count);
+    @DELETE("/photos/{id}/like")
+    Flowable<LikeResponse> postUnlike(@Path("id") String id);
+
+    @GET("/photos/random")
+    Flowable<LinkedList<PhotoItem>> getPhotosRandom(@Query("count") int count);
+
+    @GET("/users/")
+    Flowable<ProfileResponse> getProfile(@Query("username") String username);
+
+    @GET("/photos/curated")
+    Flowable<LinkedList<PhotoItem>> getPhotosCurated(@Query("page") int page,
+                                               @Query("per_page") int perPage,
+                                               @Query("order_by") String orderBy); //Valid values: latest, oldest, popular; default: latest
+
+
+    @GET("/photos")
+    Flowable<LinkedList<PhotoItem>> getPhotos(@Query("page") int page,
+                                              @Query("per_page") int perPage,
+                                              @Query("order_by") String orderBy); //Valid values: latest, oldest, popular; default: latest
 
 }

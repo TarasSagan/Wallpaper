@@ -12,10 +12,17 @@
     <string name="App_access_scope">public+read_user+write_user+read_photos+write_photos+write_likes+write_followers+read_collections+write_collections</string>
 
 
-
     <string name="loginActivity_button_Login">Login</string>
+    <string name="loginActivity_button_Join">Join</string>
     <string name="loginActivity_button_public_access">Public access</string>
     <string name="loginActivity_name_of_resource">Unsplash</string>
     <string name="loginActivity_description">Photos for everyone</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_photos">Photos</string>
+    <string name="title_loked">Liked</string>
 
 </resources>

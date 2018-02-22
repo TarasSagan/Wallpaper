@@ -1,5 +1,5 @@
 
-package com.example.taras.wallpers.api.ModelsOfResponse;
+package com.example.taras.wallpers.api.ModelsOfResponse.likeResponce;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,9 +15,6 @@ public class Links {
     @SerializedName("download")
     @Expose
     private String download;
-    @SerializedName("download_location")
-    @Expose
-    private String downloadLocation;
 
     public String getSelf() {
         return self;
@@ -41,14 +38,6 @@ public class Links {
 
     public void setDownload(String download) {
         this.download = download;
-    }
-
-    public String getDownloadLocation() {
-        return downloadLocation;
-    }
-
-    public void setDownloadLocation(String downloadLocation) {
-        this.downloadLocation = downloadLocation;
     }
 
 }

@@ -15,6 +15,7 @@ import butterknife.OnClick;
 
 public class LoginActivity extends MvpActivity<LoginView, LoginPresenter> implements LoginView{
     @BindView(R.id.btnLogin) Button btnLogin;
+    @BindView(R.id.btnJoin) Button btnJoin;
     @BindView(R.id.btnPublicAccess) Button btnPublicAccess;
 
 
@@ -34,7 +35,11 @@ public class LoginActivity extends MvpActivity<LoginView, LoginPresenter> implem
     @OnClick(R.id.btnLogin)
     public void onLogin(){
     getPresenter().loginOAuth();
+    }
 
+    @OnClick(R.id.btnJoin)
+    public void onJoin(){
+        getPresenter().join();
     }
 
     @OnClick(R.id.btnPublicAccess)

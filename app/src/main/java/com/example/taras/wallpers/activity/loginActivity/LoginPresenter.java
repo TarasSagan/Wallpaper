@@ -1,28 +1,38 @@
 package com.example.taras.wallpers.activity.loginActivity;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-
+import com.example.taras.wallpers.App;
 import com.example.taras.wallpers.R;
 import com.example.taras.wallpers.api.authorization.AuthorizationManager;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
+import javax.inject.Inject;
 
 public class LoginPresenter extends MvpBasePresenter<LoginView>{
     private Context context;
-    private AuthorizationManager authorizationManager;
+    @Inject AuthorizationManager authorizationManager;
 
     public LoginPresenter(Context context) {
         this.context = context;
-        authorizationManager = new AuthorizationManager(context);
+        App.getComponent().inject(this);
     }
 
     void loginOAuth(){
         if (isNetworkConnected()){
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://unsplash.com/oauth/authorize"
+                    + "?client_id=" + context.getString(R.string.AppID)
+                    + "&scope=" + context.getString(R.string.App_access_scope)
+                    + "&redirect_uri=" + context.getString(R.string.AppRedirectURI)
+                    + "&response_type=code"));
+            context.startActivity(intent);
+        }else ifViewAttached(view -> view.onShowMessage(context.getString(R.string.no_internet)));
+    }
+    void join(){
+        if (isNetworkConnected()){
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://unsplash.com/join"
                     + "?client_id=" + context.getString(R.string.AppID)
                     + "&scope=" + context.getString(R.string.App_access_scope)
                     + "&redirect_uri=" + context.getString(R.string.AppRedirectURI)

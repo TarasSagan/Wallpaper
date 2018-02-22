@@ -1,5 +1,5 @@
 
-package com.example.taras.wallpers.api.ModelsOfResponse;
+package com.example.taras.wallpers.api.ModelsOfResponse.photo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ public class User {
     private String lastName;
     @SerializedName("twitter_username")
     @Expose
-    private Object twitterUsername;
+    private String twitterUsername;
     @SerializedName("portfolio_url")
     @Expose
     private Object portfolioUrl;
@@ -35,22 +35,22 @@ public class User {
     private Object bio;
     @SerializedName("location")
     @Expose
-    private Object location;
+    private String location;
     @SerializedName("links")
     @Expose
     private Links_ links;
     @SerializedName("profile_image")
     @Expose
     private ProfileImage profileImage;
+    @SerializedName("total_collections")
+    @Expose
+    private long totalCollections;
     @SerializedName("total_likes")
     @Expose
     private long totalLikes;
     @SerializedName("total_photos")
     @Expose
     private long totalPhotos;
-    @SerializedName("total_collections")
-    @Expose
-    private long totalCollections;
 
     public String getId() {
         return id;
@@ -100,11 +100,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Object getTwitterUsername() {
+    public String getTwitterUsername() {
         return twitterUsername;
     }
 
-    public void setTwitterUsername(Object twitterUsername) {
+    public void setTwitterUsername(String twitterUsername) {
         this.twitterUsername = twitterUsername;
     }
 
@@ -124,11 +124,11 @@ public class User {
         this.bio = bio;
     }
 
-    public Object getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Object location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -148,6 +148,14 @@ public class User {
         this.profileImage = profileImage;
     }
 
+    public long getTotalCollections() {
+        return totalCollections;
+    }
+
+    public void setTotalCollections(long totalCollections) {
+        this.totalCollections = totalCollections;
+    }
+
     public long getTotalLikes() {
         return totalLikes;
     }
@@ -162,14 +170,6 @@ public class User {
 
     public void setTotalPhotos(long totalPhotos) {
         this.totalPhotos = totalPhotos;
-    }
-
-    public long getTotalCollections() {
-        return totalCollections;
-    }
-
-    public void setTotalCollections(long totalCollections) {
-        this.totalCollections = totalCollections;
     }
 
 }

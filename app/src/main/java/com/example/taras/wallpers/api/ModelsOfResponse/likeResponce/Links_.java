@@ -1,5 +1,5 @@
 
-package com.example.taras.wallpers.api.ModelsOfResponse;
+package com.example.taras.wallpers.api.ModelsOfResponse.likeResponce;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -18,15 +18,6 @@ public class Links_ {
     @SerializedName("likes")
     @Expose
     private String likes;
-    @SerializedName("portfolio")
-    @Expose
-    private String portfolio;
-    @SerializedName("following")
-    @Expose
-    private String following;
-    @SerializedName("followers")
-    @Expose
-    private String followers;
 
     public String getSelf() {
         return self;
@@ -58,30 +49,6 @@ public class Links_ {
 
     public void setLikes(String likes) {
         this.likes = likes;
-    }
-
-    public String getPortfolio() {
-        return portfolio;
-    }
-
-    public void setPortfolio(String portfolio) {
-        this.portfolio = portfolio;
-    }
-
-    public String getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(String following) {
-        this.following = following;
-    }
-
-    public String getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(String followers) {
-        this.followers = followers;
     }
 
 }

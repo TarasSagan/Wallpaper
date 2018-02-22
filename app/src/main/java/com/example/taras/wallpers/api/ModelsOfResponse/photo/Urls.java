@@ -1,5 +1,5 @@
 
-package com.example.taras.wallpers.api.ModelsOfResponse;
+package com.example.taras.wallpers.api.ModelsOfResponse.photo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
