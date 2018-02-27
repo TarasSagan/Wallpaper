@@ -1,14 +1,16 @@
-package com.example.taras.wallpers.activity.userProfile;
+package com.example.taras.wallpers.activity.search;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.taras.wallpers.R;
 
-public class UserProfileActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity {
+
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -23,9 +25,6 @@ public class UserProfileActivity extends AppCompatActivity {
                 case R.id.navigation_search_users:
 
                     return true;
-                case R.id.navigation_notifications:
-
-                    return true;
             }
             return false;
         }
@@ -34,13 +33,7 @@ public class UserProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
-        try
-        {
-            this.getSupportActionBar().hide();
-        }
-        catch (NullPointerException e){}
-
+        setContentView(R.layout.activity_search);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

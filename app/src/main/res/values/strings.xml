@@ -18,11 +18,17 @@
     <string name="loginActivity_name_of_resource">Unsplash</string>
     <string name="loginActivity_description">Photos for everyone</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="tittle_main_new">New</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="title_profile">Profile</string>
     <string name="title_photos">Photos</string>
     <string name="title_loked">Liked</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>

@@ -8,6 +8,7 @@ import com.example.taras.wallpers.api.ModelsOfResponse.profile.ProfileResponse;
 
 
 import java.util.LinkedList;
+import java.util.List;
 
 import io.reactivex.Flowable;
 import retrofit2.http.DELETE;
@@ -25,19 +26,22 @@ public interface UnsplashService {
     Flowable<LikeResponse> postUnlike(@Path("id") String id);
 
     @GET("/photos/random")
-    Flowable<LinkedList<PhotoItem>> getPhotosRandom(@Query("count") int count);
+    Flowable<List<PhotoItem>> getPhotosRandom(@Query("count") int count);
 
     @GET("/users/")
     Flowable<ProfileResponse> getProfile(@Query("username") String username);
 
+
+
+
     @GET("/photos/curated")
-    Flowable<LinkedList<PhotoItem>> getPhotosCurated(@Query("page") int page,
+    Flowable<List<PhotoItem>> getPhotosCurated(@Query("page") int page,
                                                @Query("per_page") int perPage,
                                                @Query("order_by") String orderBy); //Valid values: latest, oldest, popular; default: latest
 
 
     @GET("/photos")
-    Flowable<LinkedList<PhotoItem>> getPhotos(@Query("page") int page,
+    Flowable<List<PhotoItem>> getPhotos(@Query("page") int page,
                                               @Query("per_page") int perPage,
                                               @Query("order_by") String orderBy); //Valid values: latest, oldest, popular; default: latest
 

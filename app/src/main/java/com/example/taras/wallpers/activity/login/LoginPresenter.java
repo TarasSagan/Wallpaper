@@ -1,4 +1,4 @@
-package com.example.taras.wallpers.activity.loginActivity;
+package com.example.taras.wallpers.activity.login;
 
 import android.content.Context;
 import android.content.Intent;

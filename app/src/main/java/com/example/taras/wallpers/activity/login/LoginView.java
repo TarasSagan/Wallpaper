@@ -1,4 +1,4 @@
-package com.example.taras.wallpers.activity.loginActivity;
+package com.example.taras.wallpers.activity.login;
 
 import com.hannesdorfmann.mosby3.mvp.MvpView;
 

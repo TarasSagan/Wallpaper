@@ -16,7 +16,7 @@
         android:layout_marginTop="2dp"
         android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/ic_like" />
 
@@ -58,18 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_image_placeholder" />
 
-    <Button
-        android:id="@+id/buttonAddToCollections"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="6dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/ic_add_to_collections"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
     <TextView
         android:id="@+id/textViewLike"
         android:layout_width="wrap_content"
@@ -93,7 +81,7 @@
         android:layout_marginTop="6dp"
         android:background="@drawable/ic_download"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonAddToCollections"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button

@@ -1,6 +1,5 @@
-package com.example.taras.wallpers.activity.authorizedMainActivity;
+package com.example.taras.wallpers.activity.authorizedMain;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,10 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.example.taras.wallpers.R;
-import com.example.taras.wallpers.activity.loginActivity.LoginActivity;
 import com.example.taras.wallpers.api.ModelsOfResponse.photo.PhotoItem;
 import com.example.taras.wallpers.api.UnsplashService;
 import com.example.taras.wallpers.fragments.listNewPhotos.NewPhotosFragment;
+import com.example.taras.wallpers.fragments.listTrendingPhotos.TrendingPhotosFragment;
 import com.example.taras.wallpers.repository.RepositoryController;
 import com.example.taras.wallpers.repository.SharedPreferences.TokenManager;
 
@@ -34,7 +33,8 @@ public class AuthorizedMainActivity extends AppCompatActivity
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private TokenManager tokenManager;
-    private NewPhotosFragment newPhotosFragment;
+    private NewPhotosFragment newNewPhotosFragment;
+    private TrendingPhotosFragment trendingPhotosFragment;
     @Inject Flowable<List<PhotoItem>> flowableResponce;
     @Inject UnsplashService unsplashService;
 
@@ -55,6 +55,11 @@ public class AuthorizedMainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         fragmentManager = getSupportFragmentManager();
+        try
+        {
+            this.getSupportActionBar().hide();
+        }
+        catch (NullPointerException e){}
 //
 //        repositoryController = new RepositoryController();
 //        repositoryController.getResponse(getApplicationContext());
@@ -90,7 +95,7 @@ public class AuthorizedMainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (true) {
             return true;
         }
 
@@ -100,16 +105,19 @@ public class AuthorizedMainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Handle navigation_profile view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_trending) {
-            if(newPhotosFragment == null){
-                newPhotosFragment = new NewPhotosFragment();
+            if(trendingPhotosFragment == null){
+                trendingPhotosFragment = new TrendingPhotosFragment();
             }
-            showFragment(newPhotosFragment);
+            showFragment(trendingPhotosFragment);
         } else if (id == R.id.nav_new) {
-
+            if(newNewPhotosFragment == null){
+                newNewPhotosFragment = new NewPhotosFragment();
+            }
+            showFragment(newNewPhotosFragment);
         } else if (id == R.id.nav_following) {
 
         } else if (id == R.id.nav_search) {
