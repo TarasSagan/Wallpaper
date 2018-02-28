@@ -27,10 +27,10 @@ public class PhotoItem {
     private String color;
     @SerializedName("description")
     @Expose
-    private Object description;
+    private String description;
     @SerializedName("categories")
     @Expose
-    private List<Object> categories = null;
+    private List<String> categories = null;
     @SerializedName("urls")
     @Expose
     private Urls urls;
@@ -105,15 +105,15 @@ public class PhotoItem {
         return description;
     }
 
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public List<Object> getCategories() {
+    public List<String> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Object> categories) {
+    public void setCategories(List<String> categories) {
         this.categories = categories;
     }
 

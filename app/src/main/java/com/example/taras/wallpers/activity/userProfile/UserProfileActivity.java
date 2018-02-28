@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import com.example.taras.wallpers.R;
 
 public class UserProfileActivity extends AppCompatActivity {
-
+    public static final String USERNAME_KEY = "UERNAME";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -17,13 +17,13 @@ public class UserProfileActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_search_photos:
+                case R.id.navigation_user_profile:
 
                     return true;
-                case R.id.navigation_search_users:
+                case R.id.navigation_user_photos:
 
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_user_liked:
 
                     return true;
             }
@@ -42,7 +42,7 @@ public class UserProfileActivity extends AppCompatActivity {
         catch (NullPointerException e){}
 
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_user_profile);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 

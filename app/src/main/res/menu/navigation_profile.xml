@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_search_photos"
+        android:id="@+id/navigation_user_profile"
         android:icon="@drawable/ic_user_black_24dp"
         android:title="@string/title_profile" />
 
     <item
-        android:id="@+id/navigation_search_users"
+        android:id="@+id/navigation_user_photos"
         android:icon="@drawable/ic_photos_black_24dp"
         android:title="@string/title_photos" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_user_liked"
         android:icon="@drawable/ic_liked_black_24dp"
         android:title="@string/title_loked" />
 

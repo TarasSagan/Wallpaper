@@ -1,5 +1,6 @@
 package com.example.taras.wallpers.di;
 
+import android.app.DownloadManager;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import com.example.taras.wallpers.api.authorization.AuthorizationManager;
@@ -15,9 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class AppModule {
     private Context appContext;
-    AuthorizationManager authorizationManager;
-    TokenManager tokenManager;
-
 
     public AppModule(Context appContext) {
         this.appContext = appContext;
@@ -39,5 +37,11 @@ public class AppModule {
     @Singleton
     AuthorizationManager provideAuthorizationManager(Context context){
         return new AuthorizationManager(context);
+    }
+    @Provides
+    @NonNull
+    @Singleton
+    DownloadManager provideDownloadManager(Context context){
+        return (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
     }
 }

@@ -1,11 +1,17 @@
 package com.example.taras.wallpers.fragments.baseListFragment;
 
 
+import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.util.Log;
+
 import com.example.taras.wallpers.App;
 import com.example.taras.wallpers.R;
+import com.example.taras.wallpers.activity.userProfile.UserProfileActivity;
 import com.example.taras.wallpers.api.ModelsOfResponse.likeResponce.LikeResponse;
 import com.example.taras.wallpers.api.ModelsOfResponse.photo.PhotoItem;
 import com.example.taras.wallpers.api.UnsplashService;
@@ -24,10 +30,10 @@ public abstract class BaseListPresenter extends MvpBasePresenter<ListFragmentCon
     public String orderBy = "popular";
     private int currentPage = 1;
     private int perPage = 10;
+    @Inject DownloadManager downloadManager;
     @Inject Context context;
     @Inject TokenManager tokenManager;
-    @Inject
-    public UnsplashService unsplashService;
+    @Inject public UnsplashService unsplashService;
 
     public BaseListPresenter() {
         App.getComponent().inject(this);
@@ -72,13 +78,23 @@ public abstract class BaseListPresenter extends MvpBasePresenter<ListFragmentCon
 
     @Override
     public void onShowUser(PhotoItem item) {
-
+        if (isNetworkConnected()) {
+            String username = item.getUser().getUsername();
+            Intent intent = new Intent(context, UserProfileActivity.class);
+            intent.putExtra(UserProfileActivity.USERNAME_KEY, username);
+            context.startActivity(intent);
+        }else ifViewAttached(view -> view.showMessage(context.getString(R.string.no_internet)));
     }
 
     @Override
     public void onDownload(PhotoItem item) {
-
-    }
+        if (isNetworkConnected()) {
+            Uri uri = Uri.parse(item.getUrls().getRaw());
+            DownloadManager.Request request = new DownloadManager.Request(uri);
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            Long reference = downloadManager.enqueue(request);
+        }else ifViewAttached(view -> view.showMessage(context.getString(R.string.no_internet)));
+}
 
     @Override
     public void onShowPhotoDetails(PhotoItem item) {
