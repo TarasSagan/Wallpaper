@@ -6,6 +6,7 @@ import com.example.taras.wallpers.activity.login.LoginPresenter;
 import com.example.taras.wallpers.fragments.baseListFragment.BaseListPresenter;
 import com.example.taras.wallpers.fragments.listNewPhotos.NewPhotosFragmentPresenter;
 import com.example.taras.wallpers.fragments.listTrendingPhotos.TrendingPhotosPresenter;
+import com.example.taras.wallpers.fragments.profile.ProfileFragmentPresenter;
 
 import javax.inject.Singleton;
 
@@ -19,5 +20,6 @@ public interface AppComponent {
     void inject(NewPhotosFragmentPresenter newPhotosFragmentPresenter);
     void inject(TrendingPhotosPresenter trendingPhotosPresenter);
     void inject(BaseListPresenter baseListPresenter);
+    void inject(ProfileFragmentPresenter profileFragmentPresenter);
 
 }

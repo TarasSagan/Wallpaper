@@ -28,8 +28,8 @@ public interface UnsplashService {
     @GET("/photos/random")
     Flowable<List<PhotoItem>> getPhotosRandom(@Query("count") int count);
 
-    @GET("/users/")
-    Flowable<ProfileResponse> getProfile(@Query("username") String username);
+    @GET("/users/{username}")
+    Flowable<ProfileResponse> getProfile(@Path("username") String username);
 
 
 

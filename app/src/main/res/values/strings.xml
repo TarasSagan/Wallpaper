@@ -18,6 +18,10 @@
     <string name="loginActivity_name_of_resource">Unsplash</string>
     <string name="loginActivity_description">Photos for everyone</string>
 
+    <string name="profileFragment_followers">Followers:</string>
+    <string name="profileFragment_photos">Photos:</string>
+    <string name="profileFragment_following">Following:</string>
+
 
     <string name="tittle_main_new">New</string>
 
