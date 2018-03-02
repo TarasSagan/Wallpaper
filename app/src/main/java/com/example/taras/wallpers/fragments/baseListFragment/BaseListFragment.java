@@ -9,9 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.taras.wallpers.R;
 import com.example.taras.wallpers.api.ModelsOfResponse.photo.PhotoItem;
-import com.example.taras.wallpers.fragments.EndlessRecyclerOnScrollListener;
-import com.example.taras.wallpers.fragments.ListFragmentContract;
-import com.example.taras.wallpers.fragments.PhotosRecyclerAdapter;
 import com.hannesdorfmann.mosby3.mvp.MvpFragment;
 import java.util.List;
 

@@ -26,9 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:fontFamily="serif"
-        android:text="654654"
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
+        tools:text="654654"
         app:layout_constraintStart_toEndOf="@+id/imageViewProfileImage"
         app:layout_constraintTop_toTopOf="@+id/imageViewProfileImage" />
 

@@ -1,4 +1,4 @@
-package com.example.taras.wallpers.fragments;
+package com.example.taras.wallpers.fragments.baseListFragment;
 
 
 import com.example.taras.wallpers.api.ModelsOfResponse.photo.PhotoItem;

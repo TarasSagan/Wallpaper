@@ -41,7 +41,11 @@
             android:label="@string/title_activity_user_profile" />
         <activity
             android:name=".activity.search.SearchActivity"
-            android:label="@string/title_activity_search"></activity>
+            android:label="@string/title_activity_search" />
+        <activity
+            android:name=".activity.photoDetails.PhotoDetailsActivity"
+            android:label="@string/title_activity_photo_details"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

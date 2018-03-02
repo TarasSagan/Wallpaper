@@ -7,15 +7,14 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.util.Log;
 
 import com.example.taras.wallpers.App;
 import com.example.taras.wallpers.R;
+import com.example.taras.wallpers.activity.photoDetails.PhotoDetailsActivity;
 import com.example.taras.wallpers.activity.userProfile.UserProfileActivity;
-import com.example.taras.wallpers.api.ModelsOfResponse.likeResponce.LikeResponse;
+import com.example.taras.wallpers.api.ModelsOfResponse.likeResponse.LikeResponse;
 import com.example.taras.wallpers.api.ModelsOfResponse.photo.PhotoItem;
 import com.example.taras.wallpers.api.UnsplashService;
-import com.example.taras.wallpers.fragments.ListFragmentContract;
 import com.example.taras.wallpers.repository.SharedPreferences.TokenManager;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
 import java.util.List;
@@ -98,7 +97,12 @@ public abstract class BaseListPresenter extends MvpBasePresenter<ListFragmentCon
 
     @Override
     public void onShowPhotoDetails(PhotoItem item) {
-
+        if (isNetworkConnected()) {
+            String photoID = item.getId();
+            Intent intent = new Intent(context, PhotoDetailsActivity.class);
+            intent.putExtra(PhotoDetailsActivity.DETAIL_KEY, photoID);
+            context.startActivity(intent);
+        }else ifViewAttached(view -> view.showMessage(context.getString(R.string.no_internet)));
     }
 
     @Override

@@ -10,12 +10,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.taras.wallpers.R;
+import com.example.taras.wallpers.fragments.listProfileLikesPhotos.ProfileLikesPhotosFragment;
+import com.example.taras.wallpers.fragments.listProfilePhotos.ProfilePhotosFragment;
 import com.example.taras.wallpers.fragments.profile.ProfileFragment;
 
 public class UserProfileActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private ProfileFragment profileFragment;
+    private ProfilePhotosFragment profilePhotosFragment;
+    private ProfileLikesPhotosFragment profileLikesPhotosFragment;
     public static final String USERNAME_KEY = "UERNAME";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -25,16 +29,13 @@ public class UserProfileActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_user_profile:
-                    if(profileFragment == null){
-                        profileFragment = new ProfileFragment();
-                    }
                     showFragment(profileFragment);
                     return true;
                 case R.id.navigation_user_photos:
-
+                    showFragment(profilePhotosFragment);
                     return true;
                 case R.id.navigation_user_liked:
-
+                    showFragment(profileLikesPhotosFragment);
                     return true;
             }
             return false;
@@ -51,14 +52,17 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         catch (NullPointerException e){}
 
-        fragmentManager = getSupportFragmentManager();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_user_profile);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        
+        fragmentManager = getSupportFragmentManager();
+        profileFragment = new ProfileFragment();
+        profilePhotosFragment = new ProfilePhotosFragment();
+        profileLikesPhotosFragment = new ProfileLikesPhotosFragment();
 
-        if(profileFragment == null){
-            profileFragment = new ProfileFragment();
-        }
-        showFragment(profileFragment);    }
+        showFragment(profileFragment);
+    }
+
     private void showFragment(Fragment fragment){
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.activity_user_profile_container, fragment);

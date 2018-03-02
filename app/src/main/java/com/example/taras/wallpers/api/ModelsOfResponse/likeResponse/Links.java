@@ -1,10 +1,10 @@
 
-package com.example.taras.wallpers.api.ModelsOfResponse.likeResponce;
+package com.example.taras.wallpers.api.ModelsOfResponse.likeResponse;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Links_ {
+public class Links {
 
     @SerializedName("self")
     @Expose
@@ -12,12 +12,9 @@ public class Links_ {
     @SerializedName("html")
     @Expose
     private String html;
-    @SerializedName("photos")
+    @SerializedName("download")
     @Expose
-    private String photos;
-    @SerializedName("likes")
-    @Expose
-    private String likes;
+    private String download;
 
     public String getSelf() {
         return self;
@@ -35,20 +32,12 @@ public class Links_ {
         this.html = html;
     }
 
-    public String getPhotos() {
-        return photos;
+    public String getDownload() {
+        return download;
     }
 
-    public void setPhotos(String photos) {
-        this.photos = photos;
-    }
-
-    public String getLikes() {
-        return likes;
-    }
-
-    public void setLikes(String likes) {
-        this.likes = likes;
+    public void setDownload(String download) {
+        this.download = download;
     }
 
 }
