@@ -1,5 +1,6 @@
 package com.example.taras.wallpers.activity.authorizedMain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.example.taras.wallpers.R;
+import com.example.taras.wallpers.activity.search.SearchActivity;
 import com.example.taras.wallpers.api.ModelsOfResponse.photo.PhotoItem;
 import com.example.taras.wallpers.api.UnsplashService;
 import com.example.taras.wallpers.fragments.listNewPhotos.NewPhotosFragment;
@@ -121,7 +123,8 @@ public class AuthorizedMainActivity extends AppCompatActivity
         } else if (id == R.id.nav_following) {
 
         } else if (id == R.id.nav_search) {
-
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

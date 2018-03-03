@@ -2,6 +2,7 @@ package com.example.taras.wallpers.activity.photoDetails;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
@@ -102,6 +103,6 @@ public class PhotoDetailsActivity extends MvpActivity<PhotoDetailsContract.View,
 
     @Override
     public void showMessage(String info) {
-//        Snackbar.make(, info, Snackbar.LENGTH_LONG).show();
+        Snackbar.make(imageViewAppBar, info, Snackbar.LENGTH_LONG).show();
     }
 }

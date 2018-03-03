@@ -112,4 +112,9 @@ public abstract class BaseListPresenter extends MvpBasePresenter<ListFragmentCon
             currentPage++;
         }else ifViewAttached(view -> view.showMessage(context.getString(R.string.no_internet)));
     }
+    public void resetByDefault(){
+        orderBy = "popular";
+        currentPage = 1;
+        perPage = 10;
+    }
 }

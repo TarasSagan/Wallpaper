@@ -6,6 +6,8 @@ import com.example.taras.wallpers.api.ModelsOfResponse.photo.PhotoItem;
 import com.example.taras.wallpers.api.ModelsOfResponse.likeResponse.LikeResponse;
 import com.example.taras.wallpers.api.ModelsOfResponse.photoDetails.PhotoDetailsResponse;
 import com.example.taras.wallpers.api.ModelsOfResponse.profile.ProfileResponse;
+import com.example.taras.wallpers.api.ModelsOfResponse.search.photos.SearchPhotosResponse;
+import com.example.taras.wallpers.api.ModelsOfResponse.search.users.SearchUsersResponse;
 
 
 import java.util.List;
@@ -18,6 +20,18 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface UnsplashService {
+
+    @GET("/search/photos")
+    Flowable<SearchPhotosResponse> searchPhotos (@Query("query") String query,
+                                                @Query("page") int page, //Optional; default: 1
+                                                @Query("per_page") int per_page //Optional; default: 10
+//                                        @Query("orientation") String orientation //Filter search results by photo orientation. Valid values are landscape, portrait, and squarish.
+                                        );
+
+    @GET("/search/users")
+    Flowable<SearchUsersResponse> searchUsers (@Query("query") String query,
+                                               @Query("page") int page, //Optional; default: 1
+                                               @Query("per_page") int per_page);//Optional; default: 10
 
     @POST("/photos/{id}/like")
     Flowable<LikeResponse> postLike(@Path("id") String id);
@@ -39,7 +53,7 @@ public interface UnsplashService {
                                                @Query("page") int page, //Optional; default: 1
                                                @Query("per_page") int per_page, //Optional; default: 10
                                                @Query("order_by") String orderBy);//Valid values: latest, oldest, popular; default: latest
- @GET("/users/{username}/likes")
+     @GET("/users/{username}/likes")
     Flowable<List<PhotoItem>> getProfileLikesPhotos(@Path("username") String username,
                                                     @Query("page") int page, //Optional; default: 1
                                                     @Query("per_page") int per_page, //Optional; default: 10
