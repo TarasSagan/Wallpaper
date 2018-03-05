@@ -1,5 +1,6 @@
 package com.example.taras.wallpers.activity.photoDetails;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -32,6 +33,10 @@ public class PhotoDetailsActivity extends MvpActivity<PhotoDetailsContract.View,
     @BindView(R.id.textDAAperture) TextView textDAAperture;
     @BindView(R.id.textDAfocalLength) TextView textDAfocalLength;
     @BindView(R.id.textDAiso) TextView textDAiso;
+    @BindView(R.id.textDAColor) TextView textDAColor;
+    @BindView(R.id.textDADownloadsVal) TextView textDADownloadsVal;
+    @BindView(R.id.textDAViewsVal) TextView textDAViewsVal;
+    @BindView(R.id.textDALikesVal) TextView textDALikesVal;
     public static final String DETAIL_KEY = "PhotoDetailsActivity";
 
 
@@ -53,6 +58,7 @@ public class PhotoDetailsActivity extends MvpActivity<PhotoDetailsContract.View,
         return new PhotoDetailsPresenter(getIntent().getStringExtra(DETAIL_KEY));
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void showDetails(PhotoDetailsResponse details) {
         Picasso.with(this).load(details.getUrls().getRegular())
@@ -65,38 +71,50 @@ public class PhotoDetailsActivity extends MvpActivity<PhotoDetailsContract.View,
         if(!TextUtils.isEmpty(details.getDescription())){
             textDADescription.setText(details.getDescription());
         }
-        textDAWH.setText("Width: " + details.getWidth() + "px"
-                + " "+ "Height: " + details.getHeight() + "px");
-       textDAmake.setText(!TextUtils.isEmpty(details.getExif().getMake())
-               ? getString(R.string.detailActivity_make) + ": " + details.getExif().getMake()
+        textDAViewsVal.setText(details.getViews());
+        textDADownloadsVal.setText(details.getDownloads());
+        textDALikesVal.setText(details.getLikes());
+
+        textDAWH.setText(getString(R.string.detailActivity_dimensions) + ": \n" +
+                details.getWidth().toString() + " x " + details.getHeight().toString());
+        textDAmake.setText(!TextUtils.isEmpty(details.getExif().getMake())
+               ? getString(R.string.detailActivity_make) + ": \n" + details.getExif().getMake()
                : getString(R.string.detailActivity_make)+ ": ");
         textDAmodel.setText(!TextUtils.isEmpty(details.getExif().getModel())
-               ? getString(R.string.detailActivity_model) + ": " + details.getExif().getModel()
+               ? getString(R.string.detailActivity_model) + ": \n" + details.getExif().getModel()
                : getString(R.string.detailActivity_model)+ ": ");
         textDAExposureTime.setText(!TextUtils.isEmpty(details.getExif().getExposureTime())
-               ? getString(R.string.detailActivity_exposureTime) + ": " + details.getExif().getExposureTime()
+               ? getString(R.string.detailActivity_exposureTime) + ": \n" + details.getExif().getExposureTime() + "s"
                : getString(R.string.detailActivity_exposureTime)+ ": ");
         textDAAperture.setText(!TextUtils.isEmpty(details.getExif().getAperture())
-               ? getString(R.string.detailActivity_aperture) + ": " + details.getExif().getAperture()
+               ? getString(R.string.detailActivity_aperture) + ": \n" + "ƒ/" + details.getExif().getAperture()
                : getString(R.string.detailActivity_aperture)+ ": ");
         textDAfocalLength.setText(!TextUtils.isEmpty(details.getExif().getFocalLength())
-               ? getString(R.string.detailActivity_focalLength) + ": " + details.getExif().getFocalLength()
+               ? getString(R.string.detailActivity_focalLength) + ": \n" + details.getExif().getFocalLength() + "mm"
                : getString(R.string.detailActivity_focalLength)+ ": ");
         textDAiso.setText(!TextUtils.isEmpty(details.getExif().getIso())
-               ? getString(R.string.detailActivity_iso) + ": " + details.getExif().getIso()
+               ? getString(R.string.detailActivity_iso) + ": \n" + details.getExif().getIso()
                : getString(R.string.detailActivity_iso)+ ": ");
+        textDAColor.setText(!TextUtils.isEmpty(details.getColor())
+               ? getString(R.string.detailActivity_color) + ": \n" + details.getColor()
+               : getString(R.string.detailActivity_color)+ ": ");
 
 
 
     }
     private String buildLocationString(PhotoDetailsResponse details){
+
         StringBuilder builder = new StringBuilder();
-        if (!TextUtils.isEmpty(details.getLocation().getCity())){
-            builder.append(details.getLocation().getCity());
-        }
-        if(builder.length() != 0){builder.append(", ");}
-        if (!TextUtils.isEmpty(details.getLocation().getCountry())){
-            builder.append(details.getLocation().getCountry());
+        if(details.getLocation() != null) {
+            if (!TextUtils.isEmpty(details.getLocation().getCity())) {
+                builder.append(details.getLocation().getCity());
+            }
+            if (builder.length() != 0) {
+                builder.append(", ");
+            }
+            if (!TextUtils.isEmpty(details.getLocation().getCountry())) {
+                builder.append(details.getLocation().getCountry());
+            }
         }
         return builder.toString();
     }

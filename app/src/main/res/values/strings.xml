@@ -22,13 +22,20 @@
     <string name="profileFragment_photos">Photos:</string>
     <string name="profileFragment_following">Following:</string>
 
-    <string name="detailActivity_EXIF">EXIF</string>
     <string name="detailActivity_make">Make</string>
     <string name="detailActivity_model">Model</string>
     <string name="detailActivity_exposureTime">Exposure time</string>
     <string name="detailActivity_aperture">Aperture</string>
     <string name="detailActivity_focalLength">Focal length</string>
     <string name="detailActivity_iso">Iso</string>
+    <string name="detailActivity_views">Views</string>
+    <string name="detailActivity_downloads">Downloads</string>
+    <string name="detailActivity_likes">Likes</string>
+    <string name="detailActivity_color">Color</string>
+    <string name="detailActivity_dimensions">Dimensions</string>
+
+
+
 
 
     <string name="tittle_main_new">New</string>

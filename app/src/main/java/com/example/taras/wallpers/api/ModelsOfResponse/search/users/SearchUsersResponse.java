@@ -2,6 +2,7 @@
 package com.example.taras.wallpers.api.ModelsOfResponse.search.users;
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -15,7 +16,7 @@ public class SearchUsersResponse {
     private Integer totalPages;
     @SerializedName("results")
     @Expose
-    private List<Result> results = null;
+    private List<User> results = null;
 
     public Integer getTotal() {
         return total;
@@ -33,11 +34,11 @@ public class SearchUsersResponse {
         this.totalPages = totalPages;
     }
 
-    public List<Result> getResults() {
+    public List<User> getResults() {
         return results;
     }
 
-    public void setResults(List<Result> results) {
+    public void setResults(List<User> results) {
         this.results = results;
     }
 

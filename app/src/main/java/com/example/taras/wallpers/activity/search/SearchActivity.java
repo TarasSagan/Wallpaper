@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.taras.wallpers.R;
 import com.example.taras.wallpers.fragments.search.photos.SearchPhotosFragment;
+import com.example.taras.wallpers.fragments.search.users.SearchUserFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +26,7 @@ public class SearchActivity extends AppCompatActivity{
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private SearchPhotosFragment searchPhotosFragment;
+    private SearchUserFragment searchUserFragment;
     @BindView(R.id.editTextSearch) EditText editTextSearch;
     @BindView(R.id.buttonSearch) Button buttonSearch;
     @BindView(R.id.navigation_search) BottomNavigationView navigation;
@@ -42,8 +44,8 @@ public class SearchActivity extends AppCompatActivity{
                     showFragment(searchPhotosFragment);
                     return true;
                 case R.id.navigation_search_users:
-                    search = searchPhotosFragment;
-                    showFragment(searchPhotosFragment);
+                    search = searchUserFragment;
+                    showFragment(searchUserFragment);
                     return true;
             }
             return false;
@@ -58,6 +60,7 @@ public class SearchActivity extends AppCompatActivity{
         ButterKnife.bind(this);
         getSupportActionBar().setTitle("");
         searchPhotosFragment = new SearchPhotosFragment();
+        searchUserFragment = new SearchUserFragment();
         fragmentManager = getSupportFragmentManager();
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -69,18 +72,8 @@ public class SearchActivity extends AppCompatActivity{
     public void onClick(){
         String editable;
         if(!TextUtils.isEmpty(editTextSearch.getText().toString())){
-
-        }
-        editable = editTextSearch.getText().toString();
-        search.onSearch(editable);
-
-        switch (navigation.getSelectedItemId()){
-            case R.id.navigation_search_photos:
-                search.onSearch(editable);
-                break;
-            case R.id.navigation_search_users:
-                search.onSearch(editable);
-                break;
+            editable = editTextSearch.getText().toString();
+            search.onSearch(editable);
         }
     }
 

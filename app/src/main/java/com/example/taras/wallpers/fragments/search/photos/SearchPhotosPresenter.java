@@ -10,7 +10,7 @@ import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class SearchPhotosPresenter extends BaseListPresenter implements ISearchPhotosPresenter{
+public class SearchPhotosPresenter extends BaseListPresenter implements ISearchPhotosPresenter {
     private String query;
 
 

@@ -31,7 +31,7 @@ public interface UnsplashService {
     @GET("/search/users")
     Flowable<SearchUsersResponse> searchUsers (@Query("query") String query,
                                                @Query("page") int page, //Optional; default: 1
-                                               @Query("per_page") int per_page);//Optional; default: 10
+                                               @Query("per_page") int perPage);//Optional; default: 10
 
     @POST("/photos/{id}/like")
     Flowable<LikeResponse> postLike(@Path("id") String id);

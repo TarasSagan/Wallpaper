@@ -13,141 +13,304 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textDALocation"
+            android:id="@+id/textDALikes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/buttonLocation"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/detailActivity_likes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textDADownloads"
+            app:layout_constraintTop_toBottomOf="@+id/textDALocation" />
+
+        <TextView
+            android:id="@+id/textDALikesVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            tools:text="635478"
+            app:layout_constraintEnd_toEndOf="@+id/textDALikes"
+            app:layout_constraintStart_toStartOf="@+id/textDALikes"
+            app:layout_constraintTop_toBottomOf="@+id/textDALikes" />
+
+        <TextView
+            android:id="@+id/textDADownloads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            android:text="@string/detailActivity_downloads"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDALocation" />
+
+        <TextView
+            android:id="@+id/textDADownloadsVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            tools:text="635478"
+            app:layout_constraintEnd_toEndOf="@+id/textDADownloads"
+            app:layout_constraintStart_toStartOf="@+id/textDADownloads"
+            app:layout_constraintTop_toBottomOf="@+id/textDADownloads" />
+
+        <TextView
+            android:id="@+id/textDAViews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            android:text="@string/detailActivity_views"
+            app:layout_constraintEnd_toStartOf="@+id/textDADownloads"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDALocation" />
+
+        <TextView
+            android:id="@+id/textDAViewsVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            tools:text="635478"
+            app:layout_constraintEnd_toEndOf="@+id/textDAViews"
+            app:layout_constraintStart_toStartOf="@+id/textDAViews"
+            app:layout_constraintTop_toBottomOf="@+id/textDAViews" />
+
+        <TextView
+            android:id="@+id/textDALocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDADescription"
+            tools:text="Kiev, Ukraine"/>
+
+        <Button
+            android:id="@+id/buttonDACamera"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_camera"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDADownloadsVal" />
 
         <Button
             android:id="@+id/buttonLocation"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
             android:background="@drawable/ic_location_24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/textDALocation"
+            app:layout_constraintEnd_toStartOf="@+id/textDALocation"
+            app:layout_constraintTop_toTopOf="@+id/textDALocation" />
+
+        <Button
+            android:id="@+id/buttonDAModel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_camera"
+            app:layout_constraintEnd_toEndOf="@+id/textDADownloads"
+            app:layout_constraintTop_toTopOf="@+id/buttonDACamera" />
+
+        <Button
+            android:id="@+id/buttonDASize"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_size"
+            app:layout_constraintStart_toStartOf="@+id/buttonDACamera"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDACamera" />
+
+        <Button
+            android:id="@+id/buttonDAFocus"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_focus"
+            app:layout_constraintStart_toStartOf="@+id/buttonDAModel"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDAModel" />
+
+        <Button
+            android:id="@+id/buttonDAExposure"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_exposure"
+            android:text="Button"
+            app:layout_constraintStart_toStartOf="@+id/buttonDAFocus"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDAFocus" />
+
+        <Button
+            android:id="@+id/buttonDAAperture"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_aperture"
+            app:layout_constraintStart_toStartOf="@+id/buttonDASize"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDASize" />
+
+        <Button
+            android:id="@+id/buttonDAIso"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_iso"
+            app:layout_constraintStart_toStartOf="@+id/buttonDAAperture"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDAAperture" />
+
+        <Button
+            android:id="@+id/buttonDAColor"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_color"
+            app:layout_constraintStart_toStartOf="@+id/buttonDAExposure"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDAExposure" />
 
         <TextView
             android:id="@+id/textDADescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLocation"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Description" />
 
         <TextView
             android:id="@+id/textDAWH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDADescription"
-            tools:text="1654px qweq12px" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:text="EXIF"
-            android:fontFamily="serif"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDAWH" />
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDASize"
+            app:layout_constraintStart_toEndOf="@+id/buttonDASize"
+            app:layout_constraintTop_toTopOf="@+id/buttonDASize"
+            tools:text="qweq12px" />
 
         <TextView
             android:id="@+id/textDAmake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDACamera"
+            app:layout_constraintStart_toEndOf="@+id/buttonDACamera"
+            app:layout_constraintTop_toTopOf="@+id/buttonDACamera"
             tools:text="make" />
 
         <TextView
             android:id="@+id/textDAiso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDAfocalLength"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDAIso"
+            app:layout_constraintStart_toEndOf="@+id/buttonDAIso"
+            app:layout_constraintTop_toTopOf="@+id/buttonDAIso"
             tools:text="@string/detailActivity_aperture" />
 
         <TextView
             android:id="@+id/textDAmodel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDAmake"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDAModel"
+            app:layout_constraintStart_toEndOf="@+id/buttonDAModel"
+            app:layout_constraintTop_toTopOf="@+id/buttonDAModel"
             tools:text="@string/detailActivity_model" />
 
         <TextView
             android:id="@+id/textDAExposureTime"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDAmodel"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDAExposure"
+            app:layout_constraintStart_toEndOf="@+id/buttonDAExposure"
+            app:layout_constraintTop_toTopOf="@+id/buttonDAExposure"
             tools:text="@string/detailActivity_exposureTime" />
 
         <TextView
             android:id="@+id/textDAAperture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDAExposureTime"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDAAperture"
+            app:layout_constraintStart_toEndOf="@+id/buttonDAAperture"
+            app:layout_constraintTop_toTopOf="@+id/buttonDAAperture"
             tools:text="@string/detailActivity_aperture" />
 
         <TextView
             android:id="@+id/textDAfocalLength"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDAAperture"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDAFocus"
+            app:layout_constraintStart_toEndOf="@+id/buttonDAFocus"
+            app:layout_constraintTop_toTopOf="@+id/buttonDAFocus"
             tools:text="@string/detailActivity_focalLength" />
+
+        <TextView
+            android:id="@+id/textDAColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDAColor"
+            app:layout_constraintStart_toEndOf="@+id/buttonDAColor"
+            app:layout_constraintTop_toTopOf="@+id/buttonDAColor"
+            app:layout_constraintVertical_bias="0.0" />
     </android.support.constraint.ConstraintLayout>
 </android.support.v4.widget.NestedScrollView>
