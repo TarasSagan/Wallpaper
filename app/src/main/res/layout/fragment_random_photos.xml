@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.example.taras.wallpers.fragments.listNewPhotos.NewPhotosFragment"
+        tools:context="com.example.taras.wallpapers.fragments.listNewPhotos.NewPhotosFragment"
         tools:listitem="@layout/photo_item" />
 
 </android.support.constraint.ConstraintLayout>

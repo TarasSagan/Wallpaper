@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.taras.wallpers.activity.photoDetails.PhotoDetailsActivity"
+    tools:context="com.example.taras.wallpapers.activity.photoDetails.PhotoDetailsActivity"
     tools:showIn="@layout/activity_photo_details">
 
     <android.support.constraint.ConstraintLayout

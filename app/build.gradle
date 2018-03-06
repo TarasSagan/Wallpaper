@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.example.taras.wallpers"
+        applicationId "com.example.taras.wallpapers"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
