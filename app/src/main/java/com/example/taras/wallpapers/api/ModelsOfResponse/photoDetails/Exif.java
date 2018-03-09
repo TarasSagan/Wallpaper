@@ -23,7 +23,7 @@ public class Exif {
     private String focalLength;
     @SerializedName("iso")
     @Expose
-    private String iso;
+    private Integer iso;
 
     public String getMake() {
         return make;
@@ -65,11 +65,11 @@ public class Exif {
         this.focalLength = focalLength;
     }
 
-    public String getIso() {
+    public Integer getIso() {
         return iso;
     }
 
-    public void setIso(String iso) {
+    public void setIso(Integer iso) {
         this.iso = iso;
     }
 

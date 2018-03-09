@@ -13,6 +13,7 @@ import com.example.taras.wallpapers.R;
 import com.example.taras.wallpapers.api.ModelsOfResponse.photo.PhotoItem;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,6 +28,10 @@ public class PhotosRecyclerAdapter extends RecyclerView.Adapter<PhotosRecyclerAd
         int positionStart = getItemCount();
         mValues.addAll(newData);
         this.notifyItemRangeInserted(positionStart, getItemCount());
+    }
+    public void removeAllData(){
+        mValues = new ArrayList<>();
+        notifyDataSetChanged();
     }
 
     public PhotosRecyclerAdapter(List<PhotoItem> items, ListFragmentContract.FragmentPresenter listener, Context context) {

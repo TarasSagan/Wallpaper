@@ -2,7 +2,6 @@ package com.example.taras.wallpapers.activity.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,11 +10,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,30 +21,20 @@ import android.widget.TextView;
 
 import com.example.taras.wallpapers.R;
 import com.example.taras.wallpapers.activity.search.SearchActivity;
-import com.example.taras.wallpapers.api.ModelsOfResponse.photo.PhotoItem;
 import com.example.taras.wallpapers.api.ModelsOfResponse.profile.ProfileResponse;
-import com.example.taras.wallpapers.api.UnsplashService;
-import com.example.taras.wallpapers.fragments.listNewPhotos.NewPhotosFragment;
-import com.example.taras.wallpapers.fragments.listTrendingPhotos.TrendingPhotosFragment;
-import com.example.taras.wallpapers.repository.RepositoryController;
-import com.example.taras.wallpapers.repository.SharedPreferences.TokenManager;
+import com.example.taras.wallpapers.fragments.listAllPhotos.AllPhotosFragment;
+import com.example.taras.wallpapers.fragments.listRandomPhotos.RandomPhotosFragment;
+import com.example.taras.wallpapers.fragments.listCuratedPhotos.CuratedPhotosFragment;
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
 import com.squareup.picasso.Picasso;
-
-import java.util.List;
-
-import javax.inject.Inject;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import io.reactivex.Flowable;
 
 public class MainActivity extends MvpActivity<MainActivityContract.View, MainActivityPresenter>
         implements NavigationView.OnNavigationItemSelectedListener, MainActivityContract.View{
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
-    private NewPhotosFragment newNewPhotosFragment;
-    private TrendingPhotosFragment trendingPhotosFragment;
+    private AllPhotosFragment allPhotosFragment;
+    private CuratedPhotosFragment curatedPhotosFragment;
+    private RandomPhotosFragment randomPhotosFragment;
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private NavigationView navigationView;
@@ -134,28 +120,29 @@ public class MainActivity extends MvpActivity<MainActivityContract.View, MainAct
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation_profile view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_trending) {
-            if(trendingPhotosFragment == null){
-                trendingPhotosFragment = new TrendingPhotosFragment();
+        if (id == R.id.nav_random) {
+            if(randomPhotosFragment == null){
+                randomPhotosFragment = new RandomPhotosFragment();
             }
-            showFragment(trendingPhotosFragment);
-        } else if (id == R.id.nav_new) {
-            if(newNewPhotosFragment == null){
-                newNewPhotosFragment = new NewPhotosFragment();
+            showFragment(randomPhotosFragment);
+
+        } else if (id == R.id.nav_photos) {
+            if(allPhotosFragment == null){
+                allPhotosFragment = new AllPhotosFragment();
             }
-            showFragment(newNewPhotosFragment);
-        } else if (id == R.id.nav_following) {
+            showFragment(allPhotosFragment);
+
+        } else if (id == R.id.nav_curated) {
+            if(curatedPhotosFragment == null){
+                curatedPhotosFragment = new CuratedPhotosFragment();
+            }
+            showFragment(curatedPhotosFragment);
 
         } else if (id == R.id.nav_search) {
             Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

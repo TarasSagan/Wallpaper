@@ -18,11 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="serif"
+            android:text="@string/detailActivity_likes"
             android:textColor="@color/colorBlack"
             android:textSize="16sp"
-            android:text="@string/detailActivity_likes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textDADownloads"
             app:layout_constraintTop_toBottomOf="@+id/textDALocation" />
@@ -34,11 +34,11 @@
             android:layout_marginEnd="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            tools:text="635478"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/textDALikes"
             app:layout_constraintStart_toStartOf="@+id/textDALikes"
-            app:layout_constraintTop_toBottomOf="@+id/textDALikes" />
+            app:layout_constraintTop_toBottomOf="@+id/textDALikes"
+            tools:text="635478" />
 
         <TextView
             android:id="@+id/textDADownloads"
@@ -46,11 +46,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="serif"
+            android:text="@string/detailActivity_downloads"
             android:textColor="@color/colorBlack"
             android:textSize="16sp"
-            android:text="@string/detailActivity_downloads"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDALocation" />
@@ -63,11 +63,11 @@
             android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            tools:text="635478"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/textDADownloads"
             app:layout_constraintStart_toStartOf="@+id/textDADownloads"
-            app:layout_constraintTop_toBottomOf="@+id/textDADownloads" />
+            app:layout_constraintTop_toBottomOf="@+id/textDADownloads"
+            tools:text="635478" />
 
         <TextView
             android:id="@+id/textDAViews"
@@ -75,11 +75,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="serif"
+            android:text="@string/detailActivity_views"
             android:textColor="@color/colorBlack"
             android:textSize="16sp"
-            android:text="@string/detailActivity_views"
             app:layout_constraintEnd_toStartOf="@+id/textDADownloads"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDALocation" />
@@ -92,11 +92,11 @@
             android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            tools:text="635478"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/textDAViews"
             app:layout_constraintStart_toStartOf="@+id/textDAViews"
-            app:layout_constraintTop_toBottomOf="@+id/textDAViews" />
+            app:layout_constraintTop_toBottomOf="@+id/textDAViews"
+            tools:text="635478" />
 
         <TextView
             android:id="@+id/textDALocation"
@@ -116,7 +116,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/ic_camera"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDADownloadsVal" />
@@ -264,7 +264,7 @@
         <TextView
             android:id="@+id/textDAExposureTime"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="serif"
             android:textColor="@color/colorBlack"

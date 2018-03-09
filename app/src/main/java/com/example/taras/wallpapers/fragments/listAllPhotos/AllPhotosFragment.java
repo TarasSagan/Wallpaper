@@ -1,12 +1,12 @@
-package com.example.taras.wallpapers.fragments.listNewPhotos;
+package com.example.taras.wallpapers.fragments.listAllPhotos;
 
 
 import com.example.taras.wallpapers.fragments.baseListFragment.BaseListFragment;
 import com.example.taras.wallpapers.fragments.baseListFragment.BaseListPresenter;
 
-public class NewPhotosFragment extends BaseListFragment{
+public class AllPhotosFragment extends BaseListFragment{
     @Override
     public BaseListPresenter createPresenter() {
-        return new NewPhotosFragmentPresenter();
+        return new AllPhotosFragmentPresenter();
     }
 }

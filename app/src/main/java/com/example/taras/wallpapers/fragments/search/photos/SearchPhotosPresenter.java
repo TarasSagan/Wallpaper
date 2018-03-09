@@ -30,6 +30,7 @@ public class SearchPhotosPresenter extends BaseListPresenter implements ISearchP
     public void onSetQuery(String query) {
         this.query = query;
         resetByDefault();
+        ifViewAttached(view -> view.removeContent());
         getNextData();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.taras.wallpapers.fragments.listTrendingPhotos;
+package com.example.taras.wallpapers.fragments.listCuratedPhotos;
 
 import com.example.taras.wallpapers.api.ModelsOfResponse.photo.PhotoItem;
 import com.example.taras.wallpapers.fragments.baseListFragment.BaseListPresenter;
@@ -7,11 +7,11 @@ import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class TrendingPhotosPresenter extends BaseListPresenter{
+public class CuratedPhotosPresenter extends BaseListPresenter{
 
     @Override
     public void onLoadNextPhotos(int currentPage, int perPage) {
-        Flowable<List<PhotoItem>> flowable = unsplashService.getPhotosCurated(currentPage, perPage, orderBy);
+        Flowable<List<PhotoItem>> flowable = unsplashService.getPhotosCurated(currentPage, perPage, "latest");
         flowable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

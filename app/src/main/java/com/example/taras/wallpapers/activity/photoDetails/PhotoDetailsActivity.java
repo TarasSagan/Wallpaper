@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -71,9 +72,9 @@ public class PhotoDetailsActivity extends MvpActivity<PhotoDetailsContract.View,
         if(!TextUtils.isEmpty(details.getDescription())){
             textDADescription.setText(details.getDescription());
         }
-        textDAViewsVal.setText(details.getViews());
-        textDADownloadsVal.setText(details.getDownloads());
-        textDALikesVal.setText(details.getLikes());
+        textDAViewsVal.setText(details.getViews().toString());
+        textDADownloadsVal.setText(details.getDownloads().toString());
+        textDALikesVal.setText(details.getLikes().toString());
 
         textDAWH.setText(getString(R.string.detailActivity_dimensions) + ": \n" +
                 details.getWidth().toString() + " x " + details.getHeight().toString());
@@ -92,14 +93,12 @@ public class PhotoDetailsActivity extends MvpActivity<PhotoDetailsContract.View,
         textDAfocalLength.setText(!TextUtils.isEmpty(details.getExif().getFocalLength())
                ? getString(R.string.detailActivity_focalLength) + ": \n" + details.getExif().getFocalLength() + "mm"
                : getString(R.string.detailActivity_focalLength)+ ": ");
-        textDAiso.setText(!TextUtils.isEmpty(details.getExif().getIso())
+        textDAiso.setText(!TextUtils.isEmpty(details.getExif().getIso().toString())
                ? getString(R.string.detailActivity_iso) + ": \n" + details.getExif().getIso()
                : getString(R.string.detailActivity_iso)+ ": ");
         textDAColor.setText(!TextUtils.isEmpty(details.getColor())
                ? getString(R.string.detailActivity_color) + ": \n" + details.getColor()
                : getString(R.string.detailActivity_color)+ ": ");
-
-
 
     }
     private String buildLocationString(PhotoDetailsResponse details){

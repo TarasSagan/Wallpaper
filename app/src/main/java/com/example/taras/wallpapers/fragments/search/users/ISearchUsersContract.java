@@ -10,6 +10,7 @@ public interface ISearchUsersContract {
     public interface View extends MvpView{
         void showMessage(String message);
         void showContent(List<User> list);
+        void removeContent();
 
     }
     public interface Presenter{

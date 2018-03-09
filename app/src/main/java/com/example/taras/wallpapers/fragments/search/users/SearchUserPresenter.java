@@ -69,6 +69,7 @@ public class SearchUserPresenter extends MvpBasePresenter<ISearchUsersContract.V
         this.query = query;
         currentPage = 1;
         perPage = 10;
+        ifViewAttached(view -> view.removeContent());
         getNextData();
     }
 }

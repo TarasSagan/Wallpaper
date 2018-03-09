@@ -12,19 +12,25 @@ import android.widget.TextView;
 import com.example.taras.wallpapers.R;
 import com.example.taras.wallpapers.api.ModelsOfResponse.search.users.User;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SearchUserRecyclerAdapter extends RecyclerView.Adapter<SearchUserRecyclerAdapter.ViewHolder> {
     private final ISearchUsersContract.Presenter listener;
-    private final List<User> mValues;
+    private  List<User> mValues;
     private final Context context;
 
     public void addNewData(List<User> newData){
         int positionStart = getItemCount();
         mValues.addAll(newData);
         this.notifyItemRangeInserted(positionStart, getItemCount());
+    }
+    public void removeAll(){
+        mValues = new ArrayList<>();
+        notifyDataSetChanged();
     }
 
 

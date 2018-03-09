@@ -4,6 +4,7 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import com.example.taras.wallpapers.App;
 import com.example.taras.wallpapers.R;
@@ -26,10 +27,9 @@ public class PhotoDetailsPresenter extends MvpBasePresenter<PhotoDetailsContract
     private String photoID;
 
     public PhotoDetailsPresenter(String photoID) {
-        this.photoID = photoID;
         App.getComponent().inject(this);
+        this.photoID = photoID;
     }
-
     @Override
     public void getDetails() {
         if(isNetworkConnected()){
@@ -38,6 +38,7 @@ public class PhotoDetailsPresenter extends MvpBasePresenter<PhotoDetailsContract
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
+                        Log.d("TAG", response.getDownloads().toString());
                             ifViewAttached(view -> view.showDetails(response));
                     });
         }else ifViewAttached(view -> view.showMessage(context.getString(R.string.no_internet)));

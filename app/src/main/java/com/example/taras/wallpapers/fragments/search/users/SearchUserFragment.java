@@ -9,7 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taras.wallpapers.R;
-import com.example.taras.wallpapers.activity.search.ISearchActivity;
+import com.example.taras.wallpapers.activity.search.IOnSearch;
+import com.example.taras.wallpapers.activity.search.SearchActivity;
 import com.example.taras.wallpapers.api.ModelsOfResponse.search.users.User;
 import com.example.taras.wallpapers.fragments.EndlessRecyclerOnScrollListener;
 import com.hannesdorfmann.mosby3.mvp.MvpFragment;
@@ -19,7 +20,7 @@ import java.util.List;
 
 
 public class SearchUserFragment extends MvpFragment<ISearchUsersContract.View, SearchUserPresenter>
-        implements ISearchUsersContract.View, ISearchActivity {
+        implements ISearchUsersContract.View, IOnSearch {
     private EndlessRecyclerOnScrollListener endlessRecyclerOnScrollListener;
     private ISearchUsersPresenter iSearchUsersPresenter;
     private SearchUserRecyclerAdapter searchUserRecyclerAdapter;
@@ -49,6 +50,8 @@ public class SearchUserFragment extends MvpFragment<ISearchUsersContract.View, S
         };
         recyclerView.addOnScrollListener(endlessRecyclerOnScrollListener);
         recyclerView.setAdapter(searchUserRecyclerAdapter);
+
+        iSearchUsersPresenter.onSetQuery(getArguments().getString(SearchActivity.SearchQueryKEY));
         return view;
     }
 
@@ -59,12 +62,18 @@ public class SearchUserFragment extends MvpFragment<ISearchUsersContract.View, S
     }
 
     @Override
-    public void onSearch(String query) {
-        iSearchUsersPresenter.onSetQuery(query);
+    public void removeContent() {
+        searchUserRecyclerAdapter.removeAll();
     }
+
 
     @Override
     public void showMessage(String message) {
         Snackbar.make(recyclerView, message, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onSearch(String query) {
+        iSearchUsersPresenter.onSetQuery(query);
     }
 }

@@ -10,6 +10,7 @@ public interface ListFragmentContract {
     public interface FragmentView extends MvpView {
         void showMessage(String message);
         void showContent(List<PhotoItem> list);
+        void removeContent();
     }
     public interface FragmentPresenter {
         void onLike(PhotoItem item, int position);

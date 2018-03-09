@@ -1,12 +1,12 @@
-package com.example.taras.wallpapers.fragments.listTrendingPhotos;
+package com.example.taras.wallpapers.fragments.listRandomPhotos;
 
 import com.example.taras.wallpapers.fragments.baseListFragment.BaseListFragment;
 import com.example.taras.wallpapers.fragments.baseListFragment.BaseListPresenter;
 
-public class TrendingPhotosFragment extends BaseListFragment{
 
+public class RandomPhotosFragment extends BaseListFragment {
     @Override
     public BaseListPresenter createPresenter() {
-        return new TrendingPhotosPresenter();
+        return new RandomPhotosPresenter();
     }
 }

@@ -11,6 +11,8 @@ import com.example.taras.wallpapers.R;
 import com.example.taras.wallpapers.api.ModelsOfResponse.photo.PhotoItem;
 import com.example.taras.wallpapers.fragments.EndlessRecyclerOnScrollListener;
 import com.hannesdorfmann.mosby3.mvp.MvpFragment;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseListFragment extends MvpFragment<ListFragmentContract.FragmentView, BaseListPresenter>
@@ -32,6 +34,17 @@ public abstract class BaseListFragment extends MvpFragment<ListFragmentContract.
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_random_photos, container, false);
         recyclerView = view.findViewById(R.id.list);
+        photosRecyclerAdapter = new PhotosRecyclerAdapter(new ArrayList<>(), getPresenter(), getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        endlessRecyclerOnScrollListener = new EndlessRecyclerOnScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int current_page) {
+                getPresenter().getNextData();
+            }
+        };
+        recyclerView.addOnScrollListener(endlessRecyclerOnScrollListener);
+        recyclerView.setAdapter(photosRecyclerAdapter);
 
         getPresenter().getNextData();
         return view;
@@ -42,23 +55,16 @@ public abstract class BaseListFragment extends MvpFragment<ListFragmentContract.
         Snackbar.make(recyclerView, message, Snackbar.LENGTH_LONG).show();
     }
 
+
+    @Override
+    public void removeContent() {
+        photosRecyclerAdapter.removeAllData();
+
+    }
+
     @Override
     public void showContent(List<PhotoItem> list) {
-        if(photosRecyclerAdapter == null) {
-            photosRecyclerAdapter = new PhotosRecyclerAdapter(list, getPresenter(), getContext());
-            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-            recyclerView.setLayoutManager(layoutManager);
-            endlessRecyclerOnScrollListener = new EndlessRecyclerOnScrollListener(layoutManager) {
-                @Override
-                public void onLoadMore(int current_page) {
-                    getPresenter().getNextData();
-                }
-            };
-            recyclerView.addOnScrollListener(endlessRecyclerOnScrollListener);
-            recyclerView.setAdapter(photosRecyclerAdapter);
-        }else {
-            photosRecyclerAdapter.addNewData(list);
-        }
+        photosRecyclerAdapter.addNewData(list);
     }
 
 }
