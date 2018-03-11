@@ -85,10 +85,15 @@ public class PhotosRecyclerAdapter extends RecyclerView.Adapter<PhotosRecyclerAd
         holder.imageViewProfileImage.setOnClickListener(v -> mListener.onShowUser(holder.mItem));
         holder.buttonDownload.setOnClickListener(v -> mListener.onDownload(holder.mItem));
         holder.buttonLikedByUser.setOnClickListener(v -> {
+            mListener.onLike(holder.mItem, position);
+
             holder.buttonLikedByUser.setBackgroundResource(mValues.get(position).isLikedByUser()
                     ? R.drawable.ic_like
                     : R.drawable.ic_like_from_user);
-            mListener.onLike(holder.mItem, position);
+            mValues.get(position).setLikedByUser(mValues.get(position).isLikedByUser()
+                    ? false
+                    : true
+            );
         });
     }
 

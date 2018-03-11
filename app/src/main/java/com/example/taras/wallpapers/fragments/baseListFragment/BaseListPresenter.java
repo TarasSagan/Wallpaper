@@ -55,14 +55,12 @@ public abstract class BaseListPresenter extends MvpBasePresenter<ListFragmentCon
                     Flowable<LikeResponse> flowable = unsplashService.postUnlike(item.getId());
                     flowable.subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(response ->
-                                    photoItemList.get(position).setLikedByUser(response.getPhoto().isLikedByUser()));
+                            .subscribe();
                 } else {
                     Flowable<LikeResponse> flowable = unsplashService.postLike(item.getId());
                     flowable.subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(response ->
-                                    photoItemList.get(position).setLikedByUser(response.getPhoto().isLikedByUser()));
+                            .subscribe();
                 }
             } else ifViewAttached(view -> view.showMessage(context.getString(R.string.no_internet)));
         }
