@@ -17,17 +17,18 @@
         <activity
             android:name="com.example.taras.wallpapers.activity.main.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name="com.example.taras.wallpapers.activity.login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.example.taras.wallpapers.activity.login.LoginActivity">
-            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -38,14 +39,19 @@
         </activity>
         <activity
             android:name="com.example.taras.wallpapers.activity.userProfile.UserProfileActivity"
-            android:label="@string/title_activity_user_profile" />
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.example.taras.wallpapers.activity.search.SearchActivity"
-            android:label="@string/title_activity_search" />
+            android:label="@string/title_activity_search"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.example.taras.wallpapers.activity.photoDetails.PhotoDetailsActivity"
             android:label="@string/title_activity_photo_details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

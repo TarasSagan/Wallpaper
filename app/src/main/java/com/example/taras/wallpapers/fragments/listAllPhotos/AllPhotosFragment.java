@@ -7,6 +7,6 @@ import com.example.taras.wallpapers.fragments.baseListFragment.BaseListPresenter
 public class AllPhotosFragment extends BaseListFragment{
     @Override
     public BaseListPresenter createPresenter() {
-        return new AllPhotosFragmentPresenter();
+        return new AllPhotosPresenter();
     }
 }

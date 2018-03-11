@@ -8,8 +8,7 @@ import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class AllPhotosFragmentPresenter extends BaseListPresenter{
-    public String orderBy = "latest";
+public class AllPhotosPresenter extends BaseListPresenter{
 
     @Override
     public void onLoadNextPhotos(int currentPage, int perPage) {

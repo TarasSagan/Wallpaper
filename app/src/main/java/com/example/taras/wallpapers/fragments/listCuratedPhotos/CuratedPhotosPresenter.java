@@ -11,7 +11,7 @@ public class CuratedPhotosPresenter extends BaseListPresenter{
 
     @Override
     public void onLoadNextPhotos(int currentPage, int perPage) {
-        Flowable<List<PhotoItem>> flowable = unsplashService.getPhotosCurated(currentPage, perPage, "latest");
+        Flowable<List<PhotoItem>> flowable = unsplashService.getPhotosCurated(currentPage, perPage, orderBy);
         flowable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

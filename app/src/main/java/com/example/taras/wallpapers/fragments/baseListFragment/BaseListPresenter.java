@@ -26,7 +26,7 @@ import io.reactivex.schedulers.Schedulers;
 public abstract class BaseListPresenter extends MvpBasePresenter<ListFragmentContract.FragmentView>
         implements ListFragmentContract.FragmentPresenter {
     private List<PhotoItem> photoItemList;
-    public String orderBy = "popular";
+    protected String orderBy = "latest";
     private int currentPage = 1;
     private int perPage = 10;
     @Inject DownloadManager downloadManager;
@@ -112,9 +112,15 @@ public abstract class BaseListPresenter extends MvpBasePresenter<ListFragmentCon
             currentPage++;
         }else ifViewAttached(view -> view.showMessage(context.getString(R.string.no_internet)));
     }
+    public void setOrderBy(String orderBy){
+        resetByDefault();
+        this.orderBy = orderBy;
+        getNextData();
+    }
     public void resetByDefault(){
-        orderBy = "popular";
+        orderBy = "latest";
         currentPage = 1;
         perPage = 10;
+        ifViewAttached(view -> view.removeContent());
     }
 }

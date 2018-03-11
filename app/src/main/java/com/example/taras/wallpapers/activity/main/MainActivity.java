@@ -51,7 +51,6 @@ public class MainActivity extends MvpActivity<MainActivityContract.View, MainAct
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -61,12 +60,18 @@ public class MainActivity extends MvpActivity<MainActivityContract.View, MainAct
         navigationView.setNavigationItemSelectedListener(this);
         fragmentManager = getSupportFragmentManager();
 
-        try {this.getSupportActionBar().hide();
-        } catch (NullPointerException e){}
+//        try {this.getSupportActionBar().hide();
+//        } catch (NullPointerException e){}
 
         bindView();
         setPublicUser();
         getPresenter().initPresenter();
+
+        if(randomPhotosFragment == null){
+            randomPhotosFragment = new RandomPhotosFragment();
+        }
+        showFragment(randomPhotosFragment);
+        navigationView.setCheckedItem(R.id.nav_random);
     }
 
     private void bindView(){
@@ -95,27 +100,31 @@ public class MainActivity extends MvpActivity<MainActivityContract.View, MainAct
             super.onBackPressed();
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (true) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+    boolean need = true;
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//
+//        if (id == R.id.menu_sort) {
+//
+//        } else if (id == R.id.menu_sort_latest) {
+//
+//        } else if (id == R.id.menu_sort_oldest) {
+//
+//        } else if (id == R.id.menu_sort_popular) {
+//
+//        }
+//
+//        return true;
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -125,12 +134,14 @@ public class MainActivity extends MvpActivity<MainActivityContract.View, MainAct
         if (id == R.id.nav_random) {
             if(randomPhotosFragment == null){
                 randomPhotosFragment = new RandomPhotosFragment();
+
             }
             showFragment(randomPhotosFragment);
 
         } else if (id == R.id.nav_photos) {
             if(allPhotosFragment == null){
                 allPhotosFragment = new AllPhotosFragment();
+                need = false;
             }
             showFragment(allPhotosFragment);
 

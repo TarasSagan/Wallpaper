@@ -5,7 +5,7 @@ import com.example.taras.wallpapers.activity.login.LoginPresenter;
 import com.example.taras.wallpapers.activity.main.MainActivityPresenter;
 import com.example.taras.wallpapers.activity.photoDetails.PhotoDetailsPresenter;
 import com.example.taras.wallpapers.fragments.baseListFragment.BaseListPresenter;
-import com.example.taras.wallpapers.fragments.listAllPhotos.AllPhotosFragmentPresenter;
+import com.example.taras.wallpapers.fragments.listAllPhotos.AllPhotosPresenter;
 import com.example.taras.wallpapers.fragments.listCuratedPhotos.CuratedPhotosPresenter;
 import com.example.taras.wallpapers.fragments.profile.ProfileFragmentPresenter;
 import com.example.taras.wallpapers.fragments.search.users.SearchUserPresenter;
@@ -20,7 +20,7 @@ public interface AppComponent {
     void inject(MainActivityPresenter mainActivityPresenter);
     void inject(LoginPresenter loginPresenter);
     void inject(PhotoDetailsPresenter photoDetailsPresenter);
-    void inject(AllPhotosFragmentPresenter allPhotosFragmentPresenter);
+    void inject(AllPhotosPresenter allPhotosPresenter);
     void inject(CuratedPhotosPresenter curatedPhotosPresenter);
     void inject(BaseListPresenter baseListPresenter);
     void inject(ProfileFragmentPresenter profileFragmentPresenter);

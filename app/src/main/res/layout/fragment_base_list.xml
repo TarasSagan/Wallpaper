@@ -6,20 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/base_list_toolbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="?attr/actionBarSize"-->
-        <!--android:background="?attr/colorPrimary"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/base_list_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/random_photos_list"
+        android:id="@+id/list"
         android:name="com.example.taras.wallpers.fragments.randomPhoto.RandomPhotoFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -27,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/base_list_toolbar"
         tools:context="com.example.taras.wallpapers.fragments.listAllPhotos.AllPhotosFragment"
         tools:listitem="@layout/photo_item" />
 

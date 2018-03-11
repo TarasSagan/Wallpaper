@@ -32,20 +32,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/buttonTwitter"
         app:layout_constraintStart_toEndOf="@+id/buttonTwitter"
-        app:layout_constraintTop_toTopOf="@+id/buttonTwitter" />
+        app:layout_constraintTop_toTopOf="@+id/buttonTwitter"
+        tools:text="@qweagqweq " />
 
     <TextView
         android:id="@+id/textPersonInstagran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/buttonInstagram"
         app:layout_constraintStart_toEndOf="@+id/buttonInstagram"
-        app:layout_constraintTop_toTopOf="@+id/buttonInstagram" />
+        app:layout_constraintTop_toTopOf="@+id/buttonInstagram"
+        tools:text="@sqdweqw" />
 
     <Button
         android:id="@+id/buttonTwitter"
