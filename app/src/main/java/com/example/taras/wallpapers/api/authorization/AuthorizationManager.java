@@ -1,7 +1,11 @@
 package com.example.taras.wallpapers.api.authorization;
 
 import android.content.Context;
+import android.content.Intent;
+
 import com.example.taras.wallpapers.R;
+import com.example.taras.wallpapers.activity.login.LoginActivity;
+import com.example.taras.wallpapers.activity.main.MainActivity;
 import com.example.taras.wallpapers.api.ModelsOfResponse.token.AuthorizationToken;
 import com.example.taras.wallpapers.repository.SharedPreferences.TokenManager;
 
@@ -47,6 +51,8 @@ public class AuthorizationManager {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(authorizationToken -> {
                     tokenManager.setToken(authorizationToken);
+                    Intent intent = new Intent(context, MainActivity.class);
+                    context.startActivity(intent);
                 });
 
 

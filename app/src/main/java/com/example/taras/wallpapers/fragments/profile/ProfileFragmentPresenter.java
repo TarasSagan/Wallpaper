@@ -4,7 +4,6 @@ package com.example.taras.wallpapers.fragments.profile;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 
 import com.example.taras.wallpapers.App;
 import com.example.taras.wallpapers.R;

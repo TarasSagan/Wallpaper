@@ -5,15 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 
 import com.example.taras.wallpapers.App;
 import com.example.taras.wallpapers.R;
 import com.example.taras.wallpapers.activity.login.LoginActivity;
-import com.example.taras.wallpapers.activity.photoDetails.PhotoDetailsActivity;
 import com.example.taras.wallpapers.activity.userProfile.UserProfileActivity;
 import com.example.taras.wallpapers.api.ModelsOfResponse.profile.ProfileResponse;
-import com.example.taras.wallpapers.api.ModelsOfResponse.search.users.SearchUsersResponse;
 import com.example.taras.wallpapers.api.UnsplashService;
 import com.example.taras.wallpapers.repository.SharedPreferences.TokenManager;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;

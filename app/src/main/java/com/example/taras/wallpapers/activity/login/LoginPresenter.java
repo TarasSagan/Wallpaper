@@ -8,7 +8,6 @@ import android.net.Uri;
 import com.example.taras.wallpapers.App;
 import com.example.taras.wallpapers.R;
 import com.example.taras.wallpapers.activity.main.MainActivity;
-import com.example.taras.wallpapers.activity.userProfile.UserProfileActivity;
 import com.example.taras.wallpapers.api.authorization.AuthorizationManager;
 import com.example.taras.wallpapers.repository.SharedPreferences.TokenManager;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
@@ -28,7 +27,6 @@ public class LoginPresenter extends MvpBasePresenter<LoginView>{
         if(isNetworkConnected()){
             if (tokenManager.containsToken()){
                 Intent intent = new Intent(context, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent);
             }
         }else ifViewAttached(view -> view.onShowMessage(context.getString(R.string.no_internet)));
@@ -58,7 +56,6 @@ public class LoginPresenter extends MvpBasePresenter<LoginView>{
     void publicAccess(){
         if (isNetworkConnected()){
             Intent intent = new Intent(context, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(intent);
         }else ifViewAttached(view -> view.onShowMessage(context.getString(R.string.no_internet)));
     }

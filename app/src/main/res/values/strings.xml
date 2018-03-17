@@ -9,7 +9,7 @@
 
     <string name="AppID">bafddaf9af46bc71e5c6ff4ce4d4f35bbc56821e7e138d8e3797d1e59ef6d0d2</string>
     <string name="AppSecret">05779f1d33b43c78b5b30310903044cc303707ecef7c67ec9bf911b6ee3a3484</string>
-    <string name="AppRedirectURI">wallpers://callback</string>
+    <string name="AppRedirectURI">wallpapers://callback</string>
     <string name="AppGrant_type">authorization_code</string>
 
     <string name="App_access_scope">public+read_user+write_user+read_photos+write_photos+write_likes+write_followers+read_collections+write_collections</string>
